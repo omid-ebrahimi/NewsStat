@@ -10,6 +10,7 @@ Get news stat frome these sites:
 
 
 Introduction:
+=============
 
 This is a web-service for giving news popularity. You can send url of news and receive number of shares in
 Facebook, Twitter, Google+, Linkedin, Pinterest and Total-Share. by Total-Share you can estimate average popularity
@@ -17,6 +18,7 @@ of a news and compare to other news.
 
 
 How to use?
+===========
 
 This is address of server:
 http://example.com/
