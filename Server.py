@@ -38,7 +38,6 @@ class get_stat:
                       'LinkedIn': LinkedInStat, 'Total': TotalStat}
 
             return json.dumps(result)
-            # return url
         else:
             f = open('statService.wsdl', 'r')
             return f.read()
