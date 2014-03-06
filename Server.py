@@ -13,31 +13,35 @@ app = web.application(urls, globals())
 
 class get_stat:
     def GET(self):
-        receivedData = web.input(url='web')
+        receivedData = web.input(url='')
         url = web.websafe(receivedData.url)
+        if url!='':
+            GPlusStat = GetGPlusStat(url)
+            PinterestStat = GetPinterestStat(url)
+            FaceResult = GetFaceResult(url)
+            TwitterStat = GetTwitterStat(url)
+            LinkedInStat = GetLinkedInStat(url)
 
-        GPlusStat = GetGPlusStat(url)
-        PinterestStat = GetPinterestStat(url)
-        FaceResult = GetFaceResult(url)
-        TwitterStat = GetTwitterStat(url)
-        LinkedInStat = GetLinkedInStat(url)
+            TotalStat = 0
+            if GPlusStat != 'Error':
+                TotalStat += GPlusStat
+            if PinterestStat != 'Error':
+                TotalStat += PinterestStat
+            if FaceResult != 'Error':
+                TotalStat += FaceResult
+            if TwitterStat != 'Error':
+                TotalStat += TwitterStat
+            if LinkedInStat != 'Error':
+                TotalStat += LinkedInStat
 
-        TotalStat = 0
-        if GPlusStat != 'Error':
-            TotalStat += GPlusStat
-        if PinterestStat != 'Error':
-            TotalStat += PinterestStat
-        if FaceResult != 'Error':
-            TotalStat += FaceResult
-        if TwitterStat != 'Error':
-            TotalStat += TwitterStat
-        if LinkedInStat != 'Error':
-            TotalStat += LinkedInStat
+            result = {'GPlus': GPlusStat, 'Pinterest': PinterestStat, 'Facebook': FaceResult, 'Twitter': TwitterStat,
+                      'LinkedIn': LinkedInStat, 'Total': TotalStat}
 
-        result = {'GPlus': GPlusStat, 'Pinterest': PinterestStat, 'Facebook': FaceResult, 'Twitter': TwitterStat,
-                  'LinkedIn': LinkedInStat, 'Total': TotalStat}
-
-        return json.dumps(result)
+            return json.dumps(result)
+            # return url
+        else:
+            f = open('statService.wsdl', 'r')
+            return f.read()
 
 
 def GetGPlusStat(url):
