@@ -27,19 +27,19 @@ of a news and compare it to other news.
 How to use?
 ===========
 
-This is address of server (for example):
+This is our server address (for example):
 
     http://localhost:8080/
 
-This is The link of news:
+This is the link of news:
 
     http://www.theguardian.com/higher-education-network/blog/2014/mar/01/mental-health-issue-phd-research-university
 
-You must send this request to server:
+Client must send this request to server:
 
     http://localhost:8080/services/stat?url=http://www.theguardian.com/higher-education-network/blog/2014/mar/01/mental-health-issue-phd-research-university
 
-You will receive a json like this:
+Server will return a json-dump, like this:
 
     '{"GPlus": 191.0, "Pinterest": 30, "Twitter": 1333, "LinkedIn": 86, "Facebook": 46217, "Total": 47857.0}'
 
