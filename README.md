@@ -1,7 +1,7 @@
 News Stat
 ========
 
-<b>Get news popularity frome these sites:</b>
+<b>Get news popularity from these sites:</b>
 
 1- Facebook
 
